@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Game by Vartul</title>
+    <style>
+        body {font-family: Arial; text-align: center; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 50px;}
+        .game {background: rgba(255,255,255,0.1); padding: 30px; border-radius: 20px; max-width: 400px; margin: auto;}
+        input {padding: 10px; font-size: 18px; border: none; border-radius: 10px; margin: 10px; width: 200px;}
+        button {padding: 12px 25px; font-size: 16px; background: #00ff88; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;}
+        h1 {color: #00ff88;} #result {font-size: 20px; margin-top: 20px;}
+    </style>
+</head>
+<body>
+    <div class="game">
+        <h1>🎯 Number Guessing Game</h1>
+        <p>1 se 100 ke beech number socho</p>
+        <input type="number" id="guess" placeholder="Apna guess daalo">
+        <br>
+        <button onclick="checkGuess()">Check Karo</button>
+        <p id="result"></p>
+        <p id="attempts">Attempts: 0</p>
+    </div>
+    <script>
+        let randomNum = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+        function checkGuess() {
+            let userGuess = document.getElementById('guess').value;
+            attempts++;
+            document.getElementById('attempts').innerHTML = 'Attempts: ' + attempts;
+            if(userGuess == randomNum) {
+                document.getElementById('result').innerHTML = '🎉 JEET GAYA BHAI! Dubai pakka ✈️';
+                document.getElementById('result').style.color = '#00ff88';
+            } else if(userGuess > randomNum) {
+                document.getElementById('result').innerHTML = '📉 Thoda chota socho';
+                document.getElementById('result').style.color = '#ff6b6b';
+            } else {
+                document.getElementById('result').innerHTML = '📈 Thoda bada socho';
+                document.getElementById('result').style.color = '#ff6b6b';
+            }
+        }
+    </script>
+</body>
+</html>
